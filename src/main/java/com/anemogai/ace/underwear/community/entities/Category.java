@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "cats")
 @Getter
 @Setter
 @NoArgsConstructor
+@Table(name = "cats")
 public class Category {
 
     @Id
