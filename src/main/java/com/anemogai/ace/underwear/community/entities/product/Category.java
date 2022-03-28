@@ -1,4 +1,4 @@
-package com.anemogai.ace.underwear.community.entities;
+package com.anemogai.ace.underwear.community.entities.product;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,8 +27,20 @@ public class Category {
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
     private List<Product> productList = new ArrayList<>();
 
+
     public Category(String catName, String desc) {
         this.catName = catName;
         this.desc = desc;
+    }
+
+    public Category(String catName, List<Product> productList) {
+        this.catName = catName;
+        this.productList = productList;
+    }
+
+    public Category(String catName, String desc, List<Product> productList) {
+        this.catName = catName;
+        this.desc = desc;
+        this.productList = productList;
     }
 }
