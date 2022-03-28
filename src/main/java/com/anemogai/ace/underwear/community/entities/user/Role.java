@@ -1,4 +1,4 @@
-package com.anemogai.ace.underwear.community.entities;
+package com.anemogai.ace.underwear.community.entities.user;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,10 +8,10 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "roles")
 @Getter
 @Setter
 @NoArgsConstructor
+@Table(name = "roles")
 public class Role {
 
     @Id
