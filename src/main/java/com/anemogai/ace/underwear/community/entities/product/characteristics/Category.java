@@ -1,6 +1,7 @@
 package com.anemogai.ace.underwear.community.entities.product.characteristics;
 
 import com.anemogai.ace.underwear.community.entities.product.Product;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,6 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@EqualsAndHashCode
 @Table(name = "cats")
 public class Category {
 

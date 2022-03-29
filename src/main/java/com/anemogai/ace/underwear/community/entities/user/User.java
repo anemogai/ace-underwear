@@ -2,6 +2,7 @@ package com.anemogai.ace.underwear.community.entities.user;
 
 import com.anemogai.ace.underwear.community.entities.cart.Cart;
 import com.anemogai.ace.underwear.community.entities.order.Order;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,6 +17,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
+@EqualsAndHashCode
 @Table(name = "users")
 public class User {
 
