@@ -1,6 +1,7 @@
 package com.anemogai.ace.underwear.community.entities.user;
 
 import com.anemogai.ace.underwear.community.entities.cart.Cart;
+import com.anemogai.ace.underwear.community.entities.order.Order;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -43,6 +44,10 @@ public class User {
     @PrimaryKeyJoinColumn
     private Cart cart;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private Order order;
+
     @Column(name = "created_at")
     private LocalDate createdAt;
 
@@ -58,5 +63,13 @@ public class User {
         this.name = name;
         this.password = password;
         this.phoneNumber = phoneNumber;
+    }
+
+    public User(String name, String phoneNumber, String email, LocalDate createdAt, LocalDate updatedAt) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 }
