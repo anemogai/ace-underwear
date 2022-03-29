@@ -22,25 +22,13 @@ public class Category {
     @Column(name = "cat_name")
     private String catName;
 
-    private String desc;
-
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
     private List<Product> productList = new ArrayList<>();
 
-
-    public Category(String catName, String desc) {
-        this.catName = catName;
-        this.desc = desc;
-    }
 
     public Category(String catName, List<Product> productList) {
         this.catName = catName;
         this.productList = productList;
     }
 
-    public Category(String catName, String desc, List<Product> productList) {
-        this.catName = catName;
-        this.desc = desc;
-        this.productList = productList;
-    }
 }
