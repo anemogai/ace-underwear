@@ -1,7 +1,6 @@
 package com.anemogai.ace.underwear.community.entities.user;
 
 import com.anemogai.ace.underwear.community.entities.cart.Cart;
-import com.anemogai.ace.underwear.community.entities.cart.CartItem;
 import com.anemogai.ace.underwear.community.entities.order.Order;
 import com.anemogai.ace.underwear.community.entities.order.adress.Address;
 import lombok.EqualsAndHashCode;
@@ -53,13 +52,11 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Address> addresses = new ArrayList<>();
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-    private Cart cart;
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Cart> carts = new ArrayList<>();
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-    private Order order;
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Order> orders = new ArrayList<>();
 
     @Column(name = "created_at")
     private LocalDate createdAt;
@@ -67,19 +64,16 @@ public class User {
     @Column(name = "updated_at")
     private LocalDate updatedAt;
 
-    public User(String name, String password) {
-        this.name = name;
+
+    public User(String password, String email) {
         this.password = password;
+        this.email = email;
     }
 
-    public User(String name, String password, String phoneNumber) {
+    public User(String name, String gender, String password, String phoneNumber, String email, LocalDate createdAt, LocalDate updatedAt) {
         this.name = name;
+        this.gender = gender;
         this.password = password;
-        this.phoneNumber = phoneNumber;
-    }
-
-    public User(String name, String phoneNumber, String email, LocalDate createdAt, LocalDate updatedAt) {
-        this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.createdAt = createdAt;

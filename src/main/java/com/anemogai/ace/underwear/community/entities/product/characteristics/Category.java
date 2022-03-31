@@ -15,7 +15,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode
-@Table(name = "cats")
+@Table(name = "cat")
 public class Category {
 
     @Id
@@ -27,6 +27,11 @@ public class Category {
 
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
     private List<Product> productList = new ArrayList<>();
+
+
+    public Category(String catTitle) {
+        this.catTitle = catTitle;
+    }
 
     public Category(String catTitle, List<Product> productList) {
         this.catTitle = catTitle;

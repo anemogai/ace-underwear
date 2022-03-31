@@ -1,6 +1,7 @@
 package com.anemogai.ace.underwear.community.entities.cart;
 
-import com.anemogai.ace.underwear.community.entities.product.Product;
+import com.anemogai.ace.underwear.community.entities.user.User;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,6 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@EqualsAndHashCode
 @Table(name = "cart")
 public class Cart {
 
@@ -21,8 +23,7 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_id")
-    private Long userId;
+    private Float price; //?
 
     @Column(name = "created_at")
     private LocalDate createdAt;
@@ -30,6 +31,15 @@ public class Cart {
     @Column(name = "updated_at")
     private LocalDate updatedAt;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     @OneToMany(mappedBy = "cart", fetch = FetchType.LAZY)
     private List<CartItem> items = new ArrayList<>();
+
+
+    public Cart(List<CartItem> items) {
+        this.items = items;
+    }
 }

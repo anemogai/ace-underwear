@@ -1,13 +1,11 @@
 package com.anemogai.ace.underwear.community.entities.user;
 
-import com.anemogai.ace.underwear.community.entities.cart.Cart;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Getter

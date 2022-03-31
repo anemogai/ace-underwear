@@ -21,10 +21,6 @@ public class Address {
     @Id
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
     @NotBlank
     private String country;
 
@@ -39,4 +35,24 @@ public class Address {
 
     private Integer apartment;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public Address(String country, String city, String street, Integer building, Integer apartment) {
+        this.country = country;
+        this.city = city;
+        this.street = street;
+        this.building = building;
+        this.apartment = apartment;
+    }
+
+    public Address(String country, String city, String street, Integer building, Integer apartment, User user) {
+        this.country = country;
+        this.city = city;
+        this.street = street;
+        this.building = building;
+        this.apartment = apartment;
+        this.user = user;
+    }
 }

@@ -15,7 +15,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode
-@Table(name = "colors")
+@Table(name = "color")
 public class Color {
 
     @Id
@@ -26,4 +26,8 @@ public class Color {
 
     @ManyToMany(mappedBy = "colors")
     private List<Product> productList = new ArrayList<>();
+
+    public Color(String title) {
+        this.title = title;
+    }
 }
