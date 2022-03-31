@@ -1,4 +1,4 @@
-package com.anemogai.ace.underwear.community.entities.user;
+package com.anemogai.ace.underwear.community.entity.user;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

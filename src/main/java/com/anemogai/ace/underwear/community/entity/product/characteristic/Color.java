@@ -1,6 +1,6 @@
-package com.anemogai.ace.underwear.community.entities.product.characteristics;
+package com.anemogai.ace.underwear.community.entity.product.characteristic;
 
-import com.anemogai.ace.underwear.community.entities.product.Product;
+import com.anemogai.ace.underwear.community.entity.product.Product;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

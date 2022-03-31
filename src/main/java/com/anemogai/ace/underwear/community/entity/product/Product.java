@@ -1,10 +1,10 @@
-package com.anemogai.ace.underwear.community.entities.product;
+package com.anemogai.ace.underwear.community.entity.product;
 
-import com.anemogai.ace.underwear.community.entities.cart.CartItem;
-import com.anemogai.ace.underwear.community.entities.order.OrderItem;
-import com.anemogai.ace.underwear.community.entities.product.characteristics.Category;
-import com.anemogai.ace.underwear.community.entities.product.characteristics.Color;
-import com.anemogai.ace.underwear.community.entities.product.characteristics.Size;
+import com.anemogai.ace.underwear.community.entity.cart.CartItem;
+import com.anemogai.ace.underwear.community.entity.order.OrderItem;
+import com.anemogai.ace.underwear.community.entity.product.characteristic.Category;
+import com.anemogai.ace.underwear.community.entity.product.characteristic.Color;
+import com.anemogai.ace.underwear.community.entity.product.characteristic.Size;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
