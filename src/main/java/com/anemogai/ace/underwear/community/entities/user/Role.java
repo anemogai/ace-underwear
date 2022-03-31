@@ -1,5 +1,6 @@
 package com.anemogai.ace.underwear.community.entities.user;
 
+import com.anemogai.ace.underwear.community.entities.cart.Cart;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode
-@Table(name = "roles")
+@Table(name = "role")
 public class Role {
 
     @Id
@@ -22,8 +23,9 @@ public class Role {
 
     private String role;
 
-    @ManyToMany(mappedBy = "roles")
-    private Set<User> users;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Role(String role) {
         this.role = role;

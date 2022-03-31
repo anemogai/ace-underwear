@@ -1,7 +1,9 @@
 package com.anemogai.ace.underwear.community.entities.user;
 
 import com.anemogai.ace.underwear.community.entities.cart.Cart;
+import com.anemogai.ace.underwear.community.entities.cart.CartItem;
 import com.anemogai.ace.underwear.community.entities.order.Order;
+import com.anemogai.ace.underwear.community.entities.order.adress.Address;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +13,9 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -18,7 +23,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode
-@Table(name = "users")
+@Table(name = "user")
 public class User {
 
     @Id
@@ -27,6 +32,9 @@ public class User {
 
     @NotBlank
     private String name;
+
+    @NotBlank
+    private String gender;
 
     @NotBlank
     private String password;
@@ -39,8 +47,11 @@ public class User {
     @Email
     private String email;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private Set<Role> roles;
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private Set<Role> roles = new HashSet<>();
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Address> addresses = new ArrayList<>();
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
