@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -22,6 +23,11 @@ public class OrderItem {
     private Long id;
 
     private Integer quantity;
+
+    /**
+     * total price of the entered quantity of goods
+     */
+    private BigDecimal price;
 
     @Column(name = "created_at")
     private LocalDate createdAt;

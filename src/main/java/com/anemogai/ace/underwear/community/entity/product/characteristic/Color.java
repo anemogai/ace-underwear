@@ -22,12 +22,18 @@ public class Color {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String title;
+    private String color;
 
     @ManyToMany(mappedBy = "colors")
     private List<Product> productList = new ArrayList<>();
 
-    public Color(String title) {
-        this.title = title;
+
+    public Color(String color) {
+        this.color = color;
+    }
+
+    public Color(String color, List<Product> productList) {
+        this.color = color;
+        this.productList = productList;
     }
 }

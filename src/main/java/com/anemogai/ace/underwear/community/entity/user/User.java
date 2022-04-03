@@ -2,7 +2,8 @@ package com.anemogai.ace.underwear.community.entity.user;
 
 import com.anemogai.ace.underwear.community.entity.cart.Cart;
 import com.anemogai.ace.underwear.community.entity.order.Order;
-import com.anemogai.ace.underwear.community.entity.order.adress.Address;
+import com.anemogai.ace.underwear.community.entity.user.address.Address;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

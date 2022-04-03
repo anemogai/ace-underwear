@@ -22,19 +22,18 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "cat_title")
-    private String catTitle;
+    private String title;
 
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
     private List<Product> productList = new ArrayList<>();
 
 
-    public Category(String catTitle) {
-        this.catTitle = catTitle;
+    public Category(String title) {
+        this.title = title;
     }
 
-    public Category(String catTitle, List<Product> productList) {
-        this.catTitle = catTitle;
+    public Category(String title, List<Product> productList) {
+        this.title = title;
         this.productList = productList;
     }
 }

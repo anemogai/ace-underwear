@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,13 @@ public class Product {
 
     private String title;
 
-    private Float price;
+    private BigDecimal price;
+
+    @Column(name = "created_at")
+    private LocalDate createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDate updatedAt;
 
     @ManyToOne
     @JoinColumn(name = "cat_id")
@@ -47,20 +54,6 @@ public class Product {
     @OneToOne(mappedBy = "product")
     private CartItem cartItem;
 
-    @Column(name = "created_at")
-    private LocalDate createdAt;
-
-    @Column(name = "updated_at")
-    private LocalDate updatedAt;
 
 
-    public Product(String title, Float price, Category category, List<Color> colors, List<Size> sizes, LocalDate createdAt, LocalDate updatedAt) {
-        this.title = title;
-        this.price = price;
-        this.category = category;
-        this.colors = colors;
-        this.sizes = sizes;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
 }

@@ -27,7 +27,13 @@ public class Size {
     @ManyToMany(mappedBy = "sizes")
     private List<Product> productList = new ArrayList<>();
 
+
     public Size(String size) {
         this.size = size;
+    }
+
+    public Size(String size, List<Product> productList) {
+        this.size = size;
+        this.productList = productList;
     }
 }
