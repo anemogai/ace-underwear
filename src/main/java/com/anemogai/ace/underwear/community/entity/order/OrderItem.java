@@ -44,17 +44,12 @@ public class OrderItem {
     private Product product;
 
 
-    public OrderItem(Integer quantity, Order order, Product product) {
+    public OrderItem(Integer quantity, BigDecimal price, LocalDate createdAt, LocalDate updatedAt, Order order, Product product) {
         this.quantity = quantity;
-        this.order = order;
-        this.product = product;
-    }
-
-    public OrderItem(Integer quantity, Order order, Product product, LocalDate createdAt, LocalDate updatedAt) {
-        this.quantity = quantity;
-        this.order = order;
-        this.product = product;
+        this.price = price;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+        this.order = order;
+        this.product = product;
     }
 }
