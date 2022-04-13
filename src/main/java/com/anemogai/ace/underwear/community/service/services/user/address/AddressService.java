@@ -1,4 +1,4 @@
-package com.anemogai.ace.underwear.community.service.user.address;
+package com.anemogai.ace.underwear.community.service.services.user.address;
 
 import org.springframework.stereotype.Service;
 

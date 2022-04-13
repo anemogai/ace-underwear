@@ -1,4 +1,4 @@
-package com.anemogai.ace.underwear.community.service.product;
+package com.anemogai.ace.underwear.community.service.services.product;
 
 import org.springframework.stereotype.Service;
 
