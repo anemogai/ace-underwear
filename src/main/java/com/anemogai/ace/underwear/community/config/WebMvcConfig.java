@@ -1,6 +1,7 @@
 package com.anemogai.ace.underwear.community.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -31,12 +32,12 @@ public class WebMvcConfig implements WebMvcConfigurer {
         localeInterceptor.setParamName("lang");
         registry.addInterceptor(localeInterceptor);
     }
-//    @Bean
-//    public LocalValidatorFactoryBean getValidator() {
-//        LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
-//        bean.setValidationMessageSource(getMessageResource());
-//        return bean;
-//    }
+    @Bean
+    public LocalValidatorFactoryBean getValidator() {
+        LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
+        bean.setValidationMessageSource(getMessageResource());
+        return bean;
+    }
 
 
 }

@@ -18,12 +18,12 @@ public class MainPageController {
 
     @GetMapping("/signup")
     public String a(){
-        return "sign-up";
+        return "signUp";
     }
 
     @GetMapping("/login")
     public String m(){
-        return "log-in";
+        return "aaa";
     }
 
     @PostMapping("/signup")

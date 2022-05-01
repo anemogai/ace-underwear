@@ -41,15 +41,15 @@
                     <a class="nav-link active" aria-current="page" href="#"><spring:message code="home.page"/></a>
                 </li>
 
-                <li>
-                    <a class="nav-link" href="${pageContext.request.contextPath }/signup?lang=ru" style="display: inline-block">RU</a>
-                </li>
-                <li>
-                    <a class="nav-link" href="${pageContext.request.contextPath }/signup?lang=en" style="display: inline-block">EN</a>
-                </li>
-                <li>
-                    <a class="nav-link" href="${pageContext.request.contextPath }/login?lang=by" style="display: inline-block">BY</a>
-                </li>
+<%--                <li>--%>
+<%--                    <a class="nav-link" href="${pageContext.request.contextPath }/signup?lang=ru" style="display: inline-block">RU</a>--%>
+<%--                </li>--%>
+<%--                <li>--%>
+<%--                    <a class="nav-link" href="${pageContext.request.contextPath }/signup?lang=en" style="display: inline-block">EN</a>--%>
+<%--                </li>--%>
+<%--                <li>--%>
+<%--                    <a class="nav-link" href="${pageContext.request.contextPath }/login?lang=by" style="display: inline-block">BY</a>--%>
+<%--                </li>--%>
 
                 <li class="nav-item me-3 me-lg-0">
                     <a class="nav-link" href="#"><i class="fa-solid fa-user"></i></a>
