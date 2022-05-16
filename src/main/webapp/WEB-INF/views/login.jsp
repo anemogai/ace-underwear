@@ -1,7 +1,7 @@
 <%--<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>--%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 <%@ page isELIgnored="false" %>
 
 
@@ -13,9 +13,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <style>
-
-    </style>
     <%--   CSS   --%>
 
     <%--bootstrap--%>

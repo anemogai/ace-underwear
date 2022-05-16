@@ -8,17 +8,17 @@
     <%--   CSS   --%>
 
     <%--bootstrap--%>
-    <link href="<c:url value="/resources/bootstrap5/css/bootstrap.min.css" />" rel="stylesheet">
+    <link href="<c:url value="/bootstrap5/css/bootstrap.min.css" />" rel="stylesheet">
 
-    <link href="<c:url value="/resources/form/css/style.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/form/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css" />"
+    <link href="<c:url value="/form/css/style.css" />" rel="stylesheet">
+    <link href="<c:url value="/form/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css" />"
           rel="stylesheet">
 
 
     <%--   JS   --%>
 
     <%--bootstrap--%>
-    <script src="<c:url value="/resources/bootstrap5/js/bootstrap.min.js" />"></script>
+    <script src="<c:url value="/bootstrap5/js/bootstrap.min.js" />"></script>
 
     <%--kit--%>
     <script src="https://kit.fontawesome.com/33fd3056a5.js" crossorigin="anonymous"></script>

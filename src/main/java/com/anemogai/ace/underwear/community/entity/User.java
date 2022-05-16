@@ -27,22 +27,29 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Size(min = 2, message = "{valid.name.size}")
-    @NotBlank(message = "{valid.blank}")
+    //@Size(min = 2, message = "{valid.name.size}")
+    //@NotBlank(message = "{valid.blank}")
+    @NotBlank(message = "Not blank")
+    @Size(min = 2, message = "Bigger than 2")
     private String name;
 
-    @NotBlank(message = "{valid.blank}")
+    //@NotBlank(message = "{valid.blank}")
+    @NotBlank(message = "Not blank")
     private String gender;
 
-    @Size(min = 6, max = 15, message = "{valid.password.size}")
-    @NotBlank(message = "{valid.blank}")
+    //@Size(min = 6, max = 15, message = "{valid.password.size}")
+    //@NotBlank(message = "{valid.blank}")
+    @NotBlank(message = "Not blank")
+    @Size(min = 6, max = 15, message = "Between 6 and 15")
     private String password;
 
-    @NotBlank(message = "{valid.blank}")
+    //@NotBlank(message = "{valid.blank}")
+    @NotBlank(message = "Not blank")
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @NotBlank(message = "{valid.blank}")
+    //@NotBlank(message = "{valid.blank}")
+    @NotBlank(message = "Not blank")
     @Email
     private String email;
 
@@ -67,6 +74,14 @@ public class User {
 
     public User(String password, String email) {
         this.password = password;
+        this.email = email;
+    }
+
+    public User(String name, String gender, String password, String phoneNumber, String email) {
+        this.name = name;
+        this.gender = gender;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
         this.email = email;
     }
 

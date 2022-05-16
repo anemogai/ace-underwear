@@ -6,6 +6,8 @@ import com.anemogai.ace.underwear.community.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -18,7 +20,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User addUser(User user) {
-        return userRepo.save(user);
+    public User addUser(String name, String gender, String password, String phoneNumber, String email) {
+        LocalDate createdAt = LocalDate.now();
+        LocalDate updatedAt = LocalDate.now();
+        return userRepo.save(new User(name, gender, password, phoneNumber, email, createdAt, updatedAt));
     }
 }
