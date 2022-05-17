@@ -20,9 +20,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User addUser(String name, String gender, String password, String phoneNumber, String email) {
+    public User addUser(String name, String gender, String password, String phoneNumber) {
         LocalDate createdAt = LocalDate.now();
         LocalDate updatedAt = LocalDate.now();
-        return userRepo.save(new User(name, gender, password, phoneNumber, email, createdAt, updatedAt));
+        return userRepo.save(new User(name, gender, password, phoneNumber, createdAt, updatedAt));
     }
 }

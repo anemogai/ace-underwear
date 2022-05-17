@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -29,8 +30,8 @@ public class User {
 
     //@Size(min = 2, message = "{valid.name.size}")
     //@NotBlank(message = "{valid.blank}")
-    @NotBlank(message = "Not blank")
-    @Size(min = 2, message = "Bigger than 2")
+    @NotBlank(message = "Must not be blank")
+    @Size(min = 2, message = "Size must be longer than 1 letter")
     private String name;
 
     //@NotBlank(message = "{valid.blank}")
@@ -39,18 +40,14 @@ public class User {
 
     //@Size(min = 6, max = 15, message = "{valid.password.size}")
     //@NotBlank(message = "{valid.blank}")
-    @NotBlank(message = "Not blank")
-    @Size(min = 6, max = 15, message = "Between 6 and 15")
+    @NotBlank(message = "Must not be blank")
+    @Size(min = 6, max = 15, message = "Size must be between 6 and 15")
     private String password;
 
     //@NotBlank(message = "{valid.blank}")
-    @NotBlank(message = "Not blank")
-    @Column(name = "phone_number")
-    private String phoneNumber;
-
-    //@NotBlank(message = "{valid.blank}")
-    @NotBlank(message = "Not blank")
+    @NotBlank(message = "Must not be blank")
     @Email
+    @Column(unique = true)
     private String email;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
@@ -77,19 +74,17 @@ public class User {
         this.email = email;
     }
 
-    public User(String name, String gender, String password, String phoneNumber, String email) {
+    public User(String name, String gender, String password, String email) {
         this.name = name;
         this.gender = gender;
         this.password = password;
-        this.phoneNumber = phoneNumber;
         this.email = email;
     }
 
-    public User(String name, String gender, String password, String phoneNumber, String email, LocalDate createdAt, LocalDate updatedAt) {
+    public User(String name, String gender, String password, String email, LocalDate createdAt, LocalDate updatedAt) {
         this.name = name;
         this.gender = gender;
         this.password = password;
-        this.phoneNumber = phoneNumber;
         this.email = email;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;

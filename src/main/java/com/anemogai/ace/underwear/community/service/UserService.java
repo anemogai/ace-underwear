@@ -9,5 +9,5 @@ public interface UserService {
 
     Iterable<User> getAllUsers();
 
-    User addUser(String name, String gender, String password, String phoneNumber, String email);
+    User addUser(String name, String gender, String password, String email);
 }
