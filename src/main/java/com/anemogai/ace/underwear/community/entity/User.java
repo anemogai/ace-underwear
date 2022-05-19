@@ -1,10 +1,10 @@
 package com.anemogai.ace.underwear.community.entity;
 
+import com.anemogai.ace.underwear.community.service.validator.CheckEmail;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -31,7 +31,7 @@ public class User {
     //@Size(min = 2, message = "{valid.name.size}")
     //@NotBlank(message = "{valid.blank}")
     @NotBlank(message = "Must not be blank")
-    @Size(min = 2, message = "Size must be longer than 1 letter")
+    @Size(min = 2, message = "Name must be longer than 1 letter")
     private String name;
 
     //@NotBlank(message = "{valid.blank}")
@@ -41,13 +41,13 @@ public class User {
     //@Size(min = 6, max = 15, message = "{valid.password.size}")
     //@NotBlank(message = "{valid.blank}")
     @NotBlank(message = "Must not be blank")
-    @Size(min = 6, max = 15, message = "Size must be between 6 and 15")
+    @Size(min = 6, max = 15, message = "Password size must be between 6 and 15")
     private String password;
 
     //@NotBlank(message = "{valid.blank}")
     @NotBlank(message = "Must not be blank")
-    @Email
-    @Column(unique = true)
+    @Email(message = "Email should be valid")
+    @CheckEmail
     private String email;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)

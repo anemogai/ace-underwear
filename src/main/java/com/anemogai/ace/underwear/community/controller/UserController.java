@@ -3,15 +3,19 @@ package com.anemogai.ace.underwear.community.controller;
 import com.anemogai.ace.underwear.community.entity.User;
 import com.anemogai.ace.underwear.community.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
+import javax.validation.ConstraintViolation;
 import javax.validation.Valid;
+import java.util.Set;
 
 @Controller
 public class UserController {
@@ -35,7 +39,8 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    public String signUp(@ModelAttribute("user") @Valid User user, BindingResult bindingResult){
+    public String signUp(/*@ModelAttribute("user") */@Valid User user, BindingResult bindingResult, Model model){
+
         if(bindingResult.hasErrors()){
             return "signupE";
         }

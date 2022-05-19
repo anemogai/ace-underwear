@@ -25,4 +25,12 @@ public class UserServiceImpl implements UserService {
         LocalDate updatedAt = LocalDate.now();
         return userRepo.save(new User(name, gender, password, phoneNumber, createdAt, updatedAt));
     }
+
+    @Override
+    public boolean existsUser(String email) {
+        if(userRepo.existsByEmail(email) == true){
+            return true;
+        }
+        return false;
+    }
 }
