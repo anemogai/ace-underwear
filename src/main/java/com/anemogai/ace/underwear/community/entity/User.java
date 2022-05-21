@@ -1,6 +1,7 @@
 package com.anemogai.ace.underwear.community.entity;
 
 import com.anemogai.ace.underwear.community.service.validator.CheckEmail;
+import com.anemogai.ace.underwear.community.service.validator.FieldsValueMatch;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+
+@FieldsValueMatch.List({
+        @FieldsValueMatch(
+                field = "password",
+                fieldMatch = "confirmPassword",
+                message = "Passwords do not match"
+        ),
+})
+
 @Entity
 @Getter
 @Setter
@@ -30,24 +40,29 @@ public class User {
 
     //@Size(min = 2, message = "{valid.name.size}")
     //@NotBlank(message = "{valid.blank}")
-    @NotBlank(message = "Must not be blank")
-    @Size(min = 2, message = "Name must be longer than 1 letter")
+    @NotBlank(message = "Should not be blank")
+    @Size(min = 2, message = "Name should be longer than 1 letter")
     private String name;
 
     //@NotBlank(message = "{valid.blank}")
-    @NotBlank(message = "Not blank")
+    @NotBlank(message = "Should not be blank")
     private String gender;
 
     //@Size(min = 6, max = 15, message = "{valid.password.size}")
     //@NotBlank(message = "{valid.blank}")
-    @NotBlank(message = "Must not be blank")
-    @Size(min = 6, max = 15, message = "Password size must be between 6 and 15")
+    @NotBlank(message = "Should not be blank")
+    @Size(min = 6, max = 15, message = "Password size should be between 6 and 15")
     private String password;
 
+    @NotBlank(message = "Password confirmation is mandatory")
+    @Transient
+    private String confirmPassword;
+
     //@NotBlank(message = "{valid.blank}")
-    @NotBlank(message = "Must not be blank")
+    @NotBlank(message = "Should not be blank")
     @Email(message = "Email should be valid")
     @CheckEmail
+    @Column(unique = true)
     private String email;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
