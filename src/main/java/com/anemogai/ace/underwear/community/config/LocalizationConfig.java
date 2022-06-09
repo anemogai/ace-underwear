@@ -18,10 +18,10 @@ import java.util.Locale;
 
     @Configuration
     public class LocalizationConfig extends WebMvcConfigurerAdapter {
-        /**
+      /*  *//**
          * Instantiate the appropriate locale resolution strategy
          * @return locale resolver
-         */
+         *//*
         @Bean
         public LocaleResolver localeResolver() {
             //for this demo, we'll use a SessionLocaleResolver object
@@ -36,10 +36,10 @@ import java.util.Locale;
         }
 
 
-        /**
+        *//**
          * This interceptor allows visitors to change the locale on a per-request basis
          * @return a LocaleChangeInterceptor object
-         */
+         *//*
         @Bean
         public LocaleChangeInterceptor localeChangeInterceptor() {
             //instantiate the object with an empty constructor
@@ -53,12 +53,12 @@ import java.util.Locale;
         }
 
 
-        /**
+        *//**
          * This is where we'll add the interceptor object
          * that handles internationalization
-         */
+         *//*
         @Override
         public void addInterceptors(InterceptorRegistry registry) {
             registry.addInterceptor(localeChangeInterceptor());
-        }
+        }*/
     }

@@ -1,30 +1,18 @@
 package com.anemogai.ace.underwear.community.entity;
 
-import com.anemogai.ace.underwear.community.service.validator.CheckEmail;
-import com.anemogai.ace.underwear.community.service.validator.FieldsValueMatch;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
-
-@FieldsValueMatch.List({
-        @FieldsValueMatch(
-                field = "password",
-                fieldMatch = "confirmPassword",
-                message = "Passwords do not match"
-        ),
-})
 
 @Entity
 @Getter
@@ -54,19 +42,15 @@ public class User {
     @Size(min = 6, max = 15, message = "Password size should be between 6 and 15")
     private String password;
 
-    @NotBlank(message = "Password confirmation is mandatory")
+   /* @NotBlank(message = "Password confirmation is mandatory")
     @Transient
-    private String confirmPassword;
+     private String confirmPassword;*/
 
     //@NotBlank(message = "{valid.blank}")
     @NotBlank(message = "Should not be blank")
     @Email(message = "Email should be valid")
-    @CheckEmail
     @Column(unique = true)
     private String email;
-
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private Set<Role> roles = new HashSet<>();
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Address> addresses = new ArrayList<>();
@@ -82,7 +66,6 @@ public class User {
 
     @Column(name = "updated_at")
     private LocalDate updatedAt;
-
 
     public User(String password, String email) {
         this.password = password;
@@ -104,4 +87,6 @@ public class User {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
+
+
 }

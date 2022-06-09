@@ -6,7 +6,9 @@ import com.anemogai.ace.underwear.community.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.time.LocalDate;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -20,7 +22,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User addUser(String name, String gender, String password, String phoneNumber) {
+    @Transactional
+    public User saveUser(String name, String gender, String password, String phoneNumber) {
         LocalDate createdAt = LocalDate.now();
         LocalDate updatedAt = LocalDate.now();
         return userRepo.save(new User(name, gender, password, phoneNumber, createdAt, updatedAt));
@@ -28,9 +31,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean existsUser(String email) {
-        if(userRepo.existsByEmail(email) == true){
-            return true;
-        }
-        return false;
+        return userRepo.existsByEmail(email);
+    }
+
+    @Override
+    @Transactional
+    public Optional<User> findUserByEmail(String email) {
+        return userRepo.findUserByEmail(email);
     }
 }
